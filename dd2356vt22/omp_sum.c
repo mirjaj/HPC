@@ -52,6 +52,7 @@ int main(int argc, char const *argv[])
 	for (int i = 0; i <5; i++) {
 		t1 = omp_get_wtime();
 		result = omp_sum(array,size);
+		//result = omp_critical_sum(array,size);
 		t2 = omp_get_wtime();
 		times[i] = (t2-t1);
 		average += times[i];
