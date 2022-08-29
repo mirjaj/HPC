@@ -17,6 +17,21 @@ double omp_sum(double *x, size_t size) {
 }
 
 
+double omp_critical_sum(double *x, size_t size) {
+  double sum_val = 0.0;
+  omp_set_num_threads(32);
+  int threadID;
+ 
+	#pragma omp parallel for
+	for (size_t i=0; i<size; i++) {
+		#pragma omp critical
+		sum_val += x[i];
+  		//printf("Thread id: %d working on index %d\n",omp_get_thread_num(),i); //for DEBUG
+  	}
+  return sum_val;
+}
+
+
 
 void generate_random(double *input, size_t size)
 {
