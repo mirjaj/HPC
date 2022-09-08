@@ -10,7 +10,7 @@ int main(int argc, char const *argv[])
 	MPI_Comm_size(MPI_COMM_WORLD, &size);
 	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
-	printf("Hello from thread number %d  \n", rank);
+	printf("Hello from thread number %d out of %d \n", rank,size);
 
 	MPI_Finalize();
 
